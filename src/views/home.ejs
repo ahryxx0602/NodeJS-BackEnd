@@ -31,11 +31,11 @@
                             <td><%= user.name %></td>
                             <td><%= user.city %></td>
                             <td>
-                                <form action="/edit/<%= user.id %>" method="get" class="action-form">
-                                    <button type="submit" class="action-btn edit">Edit</button>
+                                <form action="/update/<%= user.id %>" method="get" class="action-form">
+                                    <button class="action-btn edit">Edit</button>
                                 </form>
-                                <form action="/delete/<%= user.id %>" method="post" class="action-form">
-                                    <button type="submit" class="action-btn delete">Delete</button>
+                                <form action="/delete/<%= user.id %>" method="get" class="action-form">
+                                    <button class="action-btn delete">Delete</button>
                                 </form>
                             </td>
                         </tr>

@@ -1,5 +1,11 @@
 const connection = require("../config/database");
-const { getAllUsers, createUser } = require("../services/CRUDService");
+const {
+  getAllUsers,
+  createUser,
+  getUserById,
+  updateUser,
+  deleteUser,
+} = require("../services/CRUDService");
 
 const getHomePage = async (req, res) => {
   try {
@@ -29,10 +35,47 @@ const postCreateUser = async (req, res) => {
     return res.status(500).send("Error inserting user!");
   }
 };
+const postUpdateUser = async (req, res) => {
+  const { id, email, name, city } = req.body;
+  try {
+    await updateUser(email, name, city, id);
+    res.redirect("/");
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("Error inserting user!");
+  }
+};
+
+const getUpdatePage = async (req, res) => {
+  const userId = req.params.id;
+  let user = await getUserById(userId);
+  res.render("update.ejs", { user: user });
+};
+
+const getDeletePage = async (req, res) => {
+  const userId = req.params.id;
+  let user = await getUserById(userId);
+  res.render("delete.ejs", { user: user });
+};
+
+const postDeleteUser = async (req, res) => {
+  const { id } = req.body;
+  try {
+    await deleteUser(id);
+    res.redirect("/");
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("Error inserting user!");
+  }
+};
 
 module.exports = {
   getHomePage,
   getEJSPage,
   postCreateUser,
   getCreatePage,
+  getUpdatePage,
+  postUpdateUser,
+  postDeleteUser,
+  getDeletePage,
 };

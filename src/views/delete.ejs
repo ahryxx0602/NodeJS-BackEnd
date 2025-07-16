@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete user page</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/create">Create User</a>
+    </div>
+    <div class="form-add-new">
+        <form action="/delete-user" method="post">
+            <fieldset>
+                <legend>Delete a user</legend>
+                <input type="hidden" name="id" value="<%= user.id %>"/>
+                <div style="text-align:center; color:#f44336; font-weight:bold; margin-bottom:16px;">
+                    Are you sure to delete this email?
+                </div>
+                <div class="input-group">
+                    <input type="text" name="email" value="<%= user.email %>" readonly />
+                </div>
+                <div class="button">
+                    <button>Delete</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
