@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="/" class="active">Home</a>
+        <a href="/create">Create User</a>
+    </div>
+<div class="table-container">
+    <div class="title">List User</div>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (listUsers && listUsers.length > 0) { %>
+                    <% listUsers.forEach(function(user) { %>
+                        <tr>
+                            <td><%= user.id %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.name %></td>
+                            <td><%= user.city %></td>
+                            <td>
+                                <form action="/edit/<%= user.id %>" method="get" class="action-form">
+                                    <button type="submit" class="action-btn edit">Edit</button>
+                                </form>
+                                <form action="/delete/<%= user.id %>" method="post" class="action-form">
+                                    <button type="submit" class="action-btn delete">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="5" style="text-align:center;">No listUsers found</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
