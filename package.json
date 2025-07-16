@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Ahryxx Backend Node JS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahryxx0602/NodeJS-BackEnd.git"
+  },
+  "keywords": [
+    "nodejs",
+    "react"
+  ],
+  "author": "Ahryxx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahryxx0602/NodeJS-BackEnd/issues"
+  },
+  "homepage": "https://github.com/ahryxx0602/NodeJS-BackEnd#readme",
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
